@@ -6,13 +6,13 @@
 //  Copyright © 2017 Andrey. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TagsTableViewController.h"
 
-@interface ViewController ()
+@interface TagsTableViewController ()
 
 @end
 
-@implementation ViewController
+@implementation TagsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
