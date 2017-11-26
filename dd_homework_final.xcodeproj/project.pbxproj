@@ -13,6 +13,8 @@
 		553BE0041FCAF73A003B4EE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553BE0031FCAF73A003B4EE7 /* Assets.xcassets */; };
 		553BE00A1FCAF73A003B4EE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BE0091FCAF73A003B4EE7 /* main.m */; };
 		553BE0111FCAF760003B4EE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553BE0101FCAF760003B4EE7 /* LaunchScreen.storyboard */; };
+		558CEAE51FCB184300C8FE35 /* Keywords.plist in Resources */ = {isa = PBXBuildFile; fileRef = 558CEAE41FCB184300C8FE35 /* Keywords.plist */; };
+		558CEAE81FCB204500C8FE35 /* RequestFlickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 558CEAE71FCB204500C8FE35 /* RequestFlickr.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		553BE0081FCAF73A003B4EE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553BE0091FCAF73A003B4EE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		553BE0101FCAF760003B4EE7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		558CEAE41FCB184300C8FE35 /* Keywords.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keywords.plist; sourceTree = "<group>"; };
+		558CEAE61FCB204500C8FE35 /* RequestFlickr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestFlickr.h; sourceTree = "<group>"; };
+		558CEAE71FCB204500C8FE35 /* RequestFlickr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestFlickr.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +72,9 @@
 				553BE0081FCAF73A003B4EE7 /* Info.plist */,
 				553BE0091FCAF73A003B4EE7 /* main.m */,
 				553BE0101FCAF760003B4EE7 /* LaunchScreen.storyboard */,
+				558CEAE41FCB184300C8FE35 /* Keywords.plist */,
+				558CEAE61FCB204500C8FE35 /* RequestFlickr.h */,
+				558CEAE71FCB204500C8FE35 /* RequestFlickr.m */,
 			);
 			path = dd_homework_final;
 			sourceTree = "<group>";
@@ -132,6 +140,7 @@
 				553BE0111FCAF760003B4EE7 /* LaunchScreen.storyboard in Resources */,
 				553BE0041FCAF73A003B4EE7 /* Assets.xcassets in Resources */,
 				553BE0021FCAF73A003B4EE7 /* Main.storyboard in Resources */,
+				558CEAE51FCB184300C8FE35 /* Keywords.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +153,7 @@
 			files = (
 				553BDFFF1FCAF73A003B4EE7 /* TagsTableViewController.m in Sources */,
 				553BE00A1FCAF73A003B4EE7 /* main.m in Sources */,
+				558CEAE81FCB204500C8FE35 /* RequestFlickr.m in Sources */,
 				553BDFFC1FCAF73A003B4EE7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

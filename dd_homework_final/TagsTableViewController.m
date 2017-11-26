@@ -7,6 +7,7 @@
 //
 
 #import "TagsTableViewController.h"
+#import "RequestFlickr.h"
 
 @interface TagsTableViewController ()
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    RequestFlickr *rf = [[RequestFlickr alloc] init];
+    [rf getHotTags];
 }
 
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>request_to_Flickr_end</key>
+	<string>&amp;format=json&amp;nojsoncallback=1</string>
+	<key>parameter_photo_id_for_getSizes</key>
+	<string>&amp;photo_id=</string>
+	<key>parameter_per_page_for_search</key>
+	<string>&amp;per_page=12</string>
+	<key>paramerer_tags_for_search</key>
+	<string>&amp;tags=</string>
+	<key>parameter_count_for_getHotList</key>
+	<string>&amp;count=12</string>
+	<key>method_getSizes</key>
+	<string>flickr.photos.getSizes</string>
+	<key>method_search</key>
+	<string>flickr.photos.search</string>
+	<key>method_getHotList</key>
+	<string>flickr.tags.getHotList</string>
+	<key>request_to_Flickr_begin</key>
+	<string>https://api.flickr.com/services/rest/?method=</string>
+	<key>API_Key</key>
+	<string>&amp;api_key=8600137d80a1058ebefd7d2a06d77f4e</string>
+</dict>
+</plist>
