@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const RequestFlickrGetHotTagsNotification;
+extern NSString * const RequestFlickrHotTagsUserInfoKey;
+
 @interface RequestFlickr : NSObject
 
 - (void)getHotTags; 

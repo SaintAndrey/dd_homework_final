@@ -15,6 +15,7 @@
 		553BE0111FCAF760003B4EE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553BE0101FCAF760003B4EE7 /* LaunchScreen.storyboard */; };
 		558CEAE51FCB184300C8FE35 /* Keywords.plist in Resources */ = {isa = PBXBuildFile; fileRef = 558CEAE41FCB184300C8FE35 /* Keywords.plist */; };
 		558CEAE81FCB204500C8FE35 /* RequestFlickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 558CEAE71FCB204500C8FE35 /* RequestFlickr.m */; };
+		558CEAEB1FCB2C8500C8FE35 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 558CEAEA1FCB2C8500C8FE35 /* JSONParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,8 @@
 		558CEAE41FCB184300C8FE35 /* Keywords.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keywords.plist; sourceTree = "<group>"; };
 		558CEAE61FCB204500C8FE35 /* RequestFlickr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestFlickr.h; sourceTree = "<group>"; };
 		558CEAE71FCB204500C8FE35 /* RequestFlickr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestFlickr.m; sourceTree = "<group>"; };
+		558CEAE91FCB2C8500C8FE35 /* JSONParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		558CEAEA1FCB2C8500C8FE35 /* JSONParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				558CEAE41FCB184300C8FE35 /* Keywords.plist */,
 				558CEAE61FCB204500C8FE35 /* RequestFlickr.h */,
 				558CEAE71FCB204500C8FE35 /* RequestFlickr.m */,
+				558CEAE91FCB2C8500C8FE35 /* JSONParser.h */,
+				558CEAEA1FCB2C8500C8FE35 /* JSONParser.m */,
 			);
 			path = dd_homework_final;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 				553BDFFF1FCAF73A003B4EE7 /* TagsTableViewController.m in Sources */,
 				553BE00A1FCAF73A003B4EE7 /* main.m in Sources */,
 				558CEAE81FCB204500C8FE35 /* RequestFlickr.m in Sources */,
+				558CEAEB1FCB2C8500C8FE35 /* JSONParser.m in Sources */,
 				553BDFFC1FCAF73A003B4EE7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
