@@ -7,28 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		553B5CBD1FD316810017161E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553B5CBC1FD316810017161E /* Assets.xcassets */; };
 		553BDFFC1FCAF73A003B4EE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDFFB1FCAF73A003B4EE7 /* AppDelegate.m */; };
 		553BDFFF1FCAF73A003B4EE7 /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDFFE1FCAF73A003B4EE7 /* TagsTableViewController.m */; };
 		553BE0021FCAF73A003B4EE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553BE0001FCAF73A003B4EE7 /* Main.storyboard */; };
-		553BE0041FCAF73A003B4EE7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553BE0031FCAF73A003B4EE7 /* Assets.xcassets */; };
 		553BE00A1FCAF73A003B4EE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BE0091FCAF73A003B4EE7 /* main.m */; };
 		553BE0111FCAF760003B4EE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553BE0101FCAF760003B4EE7 /* LaunchScreen.storyboard */; };
+		557297871FCD9F0F0096B368 /* PhotosCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 557297861FCD9F0F0096B368 /* PhotosCollectionViewController.m */; };
 		558CEAE51FCB184300C8FE35 /* Keywords.plist in Resources */ = {isa = PBXBuildFile; fileRef = 558CEAE41FCB184300C8FE35 /* Keywords.plist */; };
 		558CEAE81FCB204500C8FE35 /* RequestFlickr.m in Sources */ = {isa = PBXBuildFile; fileRef = 558CEAE71FCB204500C8FE35 /* RequestFlickr.m */; };
 		558CEAEB1FCB2C8500C8FE35 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 558CEAEA1FCB2C8500C8FE35 /* JSONParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		553B5CBC1FD316810017161E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		553BDFF71FCAF73A003B4EE7 /* dd_homework_final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dd_homework_final.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553BDFFA1FCAF73A003B4EE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		553BDFFB1FCAF73A003B4EE7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		553BDFFD1FCAF73A003B4EE7 /* TagsTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
 		553BDFFE1FCAF73A003B4EE7 /* TagsTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
 		553BE0011FCAF73A003B4EE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		553BE0031FCAF73A003B4EE7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		553BE0081FCAF73A003B4EE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553BE0091FCAF73A003B4EE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		553BE0101FCAF760003B4EE7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		557297851FCD9F0F0096B368 /* PhotosCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotosCollectionViewController.h; sourceTree = "<group>"; };
+		557297861FCD9F0F0096B368 /* PhotosCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotosCollectionViewController.m; sourceTree = "<group>"; };
 		558CEAE41FCB184300C8FE35 /* Keywords.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keywords.plist; sourceTree = "<group>"; };
 		558CEAE61FCB204500C8FE35 /* RequestFlickr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestFlickr.h; sourceTree = "<group>"; };
 		558CEAE71FCB204500C8FE35 /* RequestFlickr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestFlickr.m; sourceTree = "<group>"; };
@@ -70,9 +73,11 @@
 				553BDFFB1FCAF73A003B4EE7 /* AppDelegate.m */,
 				553BDFFD1FCAF73A003B4EE7 /* TagsTableViewController.h */,
 				553BDFFE1FCAF73A003B4EE7 /* TagsTableViewController.m */,
+				557297851FCD9F0F0096B368 /* PhotosCollectionViewController.h */,
+				557297861FCD9F0F0096B368 /* PhotosCollectionViewController.m */,
 				553BE0001FCAF73A003B4EE7 /* Main.storyboard */,
-				553BE0031FCAF73A003B4EE7 /* Assets.xcassets */,
 				553BE0081FCAF73A003B4EE7 /* Info.plist */,
+				553B5CBC1FD316810017161E /* Assets.xcassets */,
 				553BE0091FCAF73A003B4EE7 /* main.m */,
 				553BE0101FCAF760003B4EE7 /* LaunchScreen.storyboard */,
 				558CEAE41FCB184300C8FE35 /* Keywords.plist */,
@@ -110,6 +115,9 @@
 		553BDFEF1FCAF73A003B4EE7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					100,
+				);
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Andrey;
 				TargetAttributes = {
@@ -143,8 +151,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				553BE0111FCAF760003B4EE7 /* LaunchScreen.storyboard in Resources */,
-				553BE0041FCAF73A003B4EE7 /* Assets.xcassets in Resources */,
 				553BE0021FCAF73A003B4EE7 /* Main.storyboard in Resources */,
+				553B5CBD1FD316810017161E /* Assets.xcassets in Resources */,
 				558CEAE51FCB184300C8FE35 /* Keywords.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +168,7 @@
 				553BE00A1FCAF73A003B4EE7 /* main.m in Sources */,
 				558CEAE81FCB204500C8FE35 /* RequestFlickr.m in Sources */,
 				558CEAEB1FCB2C8500C8FE35 /* JSONParser.m in Sources */,
+				557297871FCD9F0F0096B368 /* PhotosCollectionViewController.m in Sources */,
 				553BDFFC1FCAF73A003B4EE7 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

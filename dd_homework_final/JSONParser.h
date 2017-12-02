@@ -10,6 +10,8 @@
 
 @interface JSONParser : NSObject
 
-- (NSArray *)parseTagsFromGetHotList:(NSData *)data;
+- (NSArray *)parseTagsFromTagsGetHotList:(NSData *)data;
+- (NSArray *)parseIdFromPhotosSearch:(NSData *)data;
+- (NSArray *)parseHttpsFromPhotos:(NSData *)data;
 
 @end

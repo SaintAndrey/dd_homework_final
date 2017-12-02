@@ -10,12 +10,12 @@
 
 @implementation JSONParser
 
-- (NSArray *)parseTagsFromGetHotList:(NSData *)data {
+- (NSArray *)parseTagsFromTagsGetHotList:(NSData *)data {
     NSError *error = nil;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
                                                          options:NSJSONReadingMutableContainers
                                                            error:&error];
-    //NSString *string = [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
+
     NSDictionary *hottags = [json objectForKey:@"hottags"];
     NSArray *tags = [hottags objectForKey:@"tag"];
     
@@ -25,6 +25,41 @@
     }
     
     return resultTags;
+}
+
+- (NSArray *)parseIdFromPhotosSearch:(NSData *)data {
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&error];
+    NSDictionary *photos = [json objectForKey:@"photos"];
+    NSArray *photo = [photos objectForKey:@"photo"];
+    
+    NSMutableArray *resultId = [[NSMutableArray alloc] init];
+    for (NSDictionary *item in photo) {
+        [resultId addObject:[item objectForKey:@"id"]];
+    }
+    
+    return resultId;
+}
+
+- (NSArray *)parseHttpsFromPhotos:(NSData *)data {
+    NSError *error = nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:&error];
+    NSDictionary *sizes = [json objectForKey:@"sizes"];
+    NSArray *size = [sizes objectForKey:@"size"];
+    
+//    NSMutableArray *resultHttps;
+//    for (NSDictionary *item in size) {
+//        [resultHttps addObject:[item objectForKey:@""];
+//        if ([[item objectForKey:@"label"] isEqualToString:@"Thumbnail"]) {
+//            resultHttps = [item objectForKey:@"source"];
+//        }
+//    }
+    
+    return size;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import "TagsTableViewController.h"
 #import "RequestFlickr.h"
+#import "PhotosCollectionViewController.h"
 
 @interface TagsTableViewController () {
     NSArray *hotTags;
@@ -34,6 +35,12 @@
     NSDictionary *dictionaryNotification = notification.userInfo;
     hotTags = dictionaryNotification[RequestFlickrHotTagsUserInfoKey];
     [_tableHotTags reloadData];
+}
+
+-(void)logPhoto:(NSNotification *)notification {
+    NSDictionary *dic = notification.userInfo;
+    NSArray *array = dic[RequestFlickrHttpsPhotoThumbnailUserInfoKey];
+    NSLog(@"array - %@", array);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +76,20 @@
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return indexPath;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showCollectionPhotos" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showCollectionPhotos"]) {
+        NSIndexPath *indexPath = [self.tableHotTags indexPathForSelectedRow];
+        PhotosCollectionViewController *pcvc = segue.destinationViewController;
+        pcvc.tag = [hotTags objectAtIndex:indexPath.row];
+        NSLog(@"Index - %ld", (long)indexPath.row);
+    }
+
 }
 
 @end
