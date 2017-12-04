@@ -9,9 +9,11 @@
 #import "TagsTableViewController.h"
 #import "RequestFlickr.h"
 #import "PhotosCollectionViewController.h"
+#import "JSONParser.h"
 
-@interface TagsTableViewController () {
+@interface TagsTableViewController ()<RequestServer> {
     NSArray *hotTags;
+    RequestFlickr *rf;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableHotTags;
@@ -22,25 +24,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    RequestFlickr *rf = [[RequestFlickr alloc] init];
+    rf = [[RequestFlickr alloc] init];
+    rf.delegate = self;
     [rf getHotTags];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(hotTagsReceived:)
-                                                 name:RequestFlickrGetHotTagsNotification
-                                               object:nil];
 }
 
--(void)hotTagsReceived:(NSNotification *)notification {
-    NSDictionary *dictionaryNotification = notification.userInfo;
-    hotTags = dictionaryNotification[RequestFlickrHotTagsUserInfoKey];
+- (void)updateHotTagsTable:(NSArray *)tags {
+    hotTags = tags;
     [_tableHotTags reloadData];
-}
-
--(void)logPhoto:(NSNotification *)notification {
-    NSDictionary *dic = notification.userInfo;
-    NSArray *array = dic[RequestFlickrHttpsPhotoThumbnailUserInfoKey];
-    NSLog(@"array - %@", array);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,9 +78,7 @@
         NSIndexPath *indexPath = [self.tableHotTags indexPathForSelectedRow];
         PhotosCollectionViewController *pcvc = segue.destinationViewController;
         pcvc.tag = [hotTags objectAtIndex:indexPath.row];
-        NSLog(@"Index - %ld", (long)indexPath.row);
     }
-
 }
 
 @end

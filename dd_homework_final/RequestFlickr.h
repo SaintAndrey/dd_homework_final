@@ -8,21 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const RequestFlickrGetHotTagsNotification;
-extern NSString * const RequestFlickrHotTagsUserInfoKey;
-extern NSString * const RequestFlickrPhotoIdOnTagNotification;
-extern NSString * const RequestFlickrPhotoIdUserInfoKey;
-extern NSString * const RequestFlickrGetPhotoNotification;
-extern NSString * const RequestFlickrGetPhotoUserInfoKey;
-extern NSString * const RequestFlickrPhotoHttpsOnTagNotification;
-extern NSString * const RequestFlickrPhotoHttpsUserInfoKey;
-
+@protocol RequestServer;
 
 @interface RequestFlickr : NSObject
+
+@property (assign) id <RequestServer> delegate;
+@property (nonatomic, copy) void(^successBlock)(NSData *);
 
 - (void)getHotTags;
 - (void)photosSearchOnTag:(NSString *)tag;
 - (void)getPhotoOnId:(NSString *)id size:(NSString *)size;
 - (void)getPhoto:(NSString *)https;
+
+@end
+
+@protocol RequestServer
+
+@optional
+
+- (void)updateHotTagsTable:(NSArray *)hotTags;
+- (void)recivePhotosId:(NSArray *)ids;
+- (void)recivePhotoData:(NSData *)photo;
 
 @end

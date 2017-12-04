@@ -51,14 +51,6 @@
     NSDictionary *sizes = [json objectForKey:@"sizes"];
     NSArray *size = [sizes objectForKey:@"size"];
     
-//    NSMutableArray *resultHttps;
-//    for (NSDictionary *item in size) {
-//        [resultHttps addObject:[item objectForKey:@""];
-//        if ([[item objectForKey:@"label"] isEqualToString:@"Thumbnail"]) {
-//            resultHttps = [item objectForKey:@"source"];
-//        }
-//    }
-    
     return size;
 }
 

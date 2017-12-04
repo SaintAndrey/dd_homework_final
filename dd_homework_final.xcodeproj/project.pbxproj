@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		553B5CBD1FD316810017161E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553B5CBC1FD316810017161E /* Assets.xcassets */; };
+		553B5CC01FD316E00017161E /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553B5CBF1FD316E00017161E /* PhotoViewController.m */; };
 		553BDFFC1FCAF73A003B4EE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDFFB1FCAF73A003B4EE7 /* AppDelegate.m */; };
 		553BDFFF1FCAF73A003B4EE7 /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 553BDFFE1FCAF73A003B4EE7 /* TagsTableViewController.m */; };
 		553BE0021FCAF73A003B4EE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 553BE0001FCAF73A003B4EE7 /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 
 /* Begin PBXFileReference section */
 		553B5CBC1FD316810017161E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		553B5CBE1FD316E00017161E /* PhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		553B5CBF1FD316E00017161E /* PhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		553BDFF71FCAF73A003B4EE7 /* dd_homework_final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dd_homework_final.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		553BDFFA1FCAF73A003B4EE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		553BDFFB1FCAF73A003B4EE7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 				553BDFFE1FCAF73A003B4EE7 /* TagsTableViewController.m */,
 				557297851FCD9F0F0096B368 /* PhotosCollectionViewController.h */,
 				557297861FCD9F0F0096B368 /* PhotosCollectionViewController.m */,
+				553B5CBE1FD316E00017161E /* PhotoViewController.h */,
+				553B5CBF1FD316E00017161E /* PhotoViewController.m */,
 				553BE0001FCAF73A003B4EE7 /* Main.storyboard */,
 				553BE0081FCAF73A003B4EE7 /* Info.plist */,
 				553B5CBC1FD316810017161E /* Assets.xcassets */,
@@ -170,6 +175,7 @@
 				558CEAEB1FCB2C8500C8FE35 /* JSONParser.m in Sources */,
 				557297871FCD9F0F0096B368 /* PhotosCollectionViewController.m in Sources */,
 				553BDFFC1FCAF73A003B4EE7 /* AppDelegate.m in Sources */,
+				553B5CC01FD316E00017161E /* PhotoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

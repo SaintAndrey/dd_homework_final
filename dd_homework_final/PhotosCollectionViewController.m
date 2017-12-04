@@ -8,13 +8,16 @@
 
 #import "PhotosCollectionViewController.h"
 #import "RequestFlickr.h"
+#import "PhotoViewController.h"
+#import "JSONParser.h"
 
-@interface PhotosCollectionViewController () {
+@interface PhotosCollectionViewController ()<RequestServer> {
     NSArray *idsPhoto;
     NSMutableArray *photos;
+    RequestFlickr *rf;
+    NSInteger count;
 }
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) IBOutlet UIImageView *image;
 
 @end
 
@@ -25,66 +28,43 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    count = 0;
     photos = [[NSMutableArray alloc] init];
-    
-    RequestFlickr *rf = [[RequestFlickr alloc] init];
+    rf = [[RequestFlickr alloc] init];
+    rf.delegate = self;
     [rf photosSearchOnTag:_tag];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(photoIdReceived:)
-                                                 name:RequestFlickrPhotoIdOnTagNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(httpsReceived:)
-                                                 name:RequestFlickrPhotoHttpsOnTagNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(photoReceived:)
-                                                 name:RequestFlickrGetPhotoNotification
-                                               object:nil];
 }
 
--(void)photoIdReceived:(NSNotification *)notification {
-    NSDictionary *dictionaryNotification = notification.userInfo;
-    idsPhoto = dictionaryNotification[RequestFlickrPhotoIdUserInfoKey];
-    NSLog(@"%@", idsPhoto);
-    
-    RequestFlickr *rf = [[RequestFlickr alloc] init];
-    for (NSString *id in idsPhoto) {
-        [rf getPhotoOnId:id size:@"Thumbnail"];
+- (void)recivePhotosId:(NSArray *)ids {
+    idsPhoto = ids;
+    [rf getPhotoOnId:[idsPhoto objectAtIndex:count] size:@"Thumbnail"];
+}
+
+- (void)recivePhotoData:(NSData *)photo {
+    [photos addObject:photo];
+    count++;
+    if (count != 12) {
+        [rf getPhotoOnId:[idsPhoto objectAtIndex:count] size:@"Thumbnail"];
     }
-}
-
--(void)httpsReceived:(NSNotification *)notification {
-    NSDictionary *dictionaryNotification = notification.userInfo;
-    NSString *https = dictionaryNotification[RequestFlickrPhotoHttpsUserInfoKey];
     
-    RequestFlickr *rf = [[RequestFlickr alloc] init];
-    [rf getPhoto:https];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_collectionView reloadData];
+    });
 }
 
--(void)photoReceived:(NSNotification *)notification {
-    NSDictionary *dictionaryNotification = notification.userInfo;
-    [photos addObject:dictionaryNotification[RequestFlickrGetPhotoUserInfoKey]];
-    _collectionView.reloadData;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showPhoto"]) {
+        NSIndexPath *indexPath = sender;
+        PhotoViewController *pvc = segue.destinationViewController;
+        pvc.id = [idsPhoto objectAtIndex:indexPath.row];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark - UICollectionViewDataSource
 
@@ -98,7 +78,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
 
     UIImage *img = [[UIImage alloc] initWithData:[photos objectAtIndex:indexPath.row]];
-
+    
     UIImageView *photoImage = (UIImageView *)[cell viewWithTag:100];
     photoImage.image = img;
 
@@ -107,33 +87,8 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark - UICollectionViewDelegate
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showPhoto" sender:indexPath];
 }
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end
