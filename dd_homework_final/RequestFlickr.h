@@ -13,7 +13,6 @@
 @interface RequestFlickr : NSObject
 
 @property (assign) id <RequestServer> delegate;
-@property (nonatomic, copy) void(^successBlock)(NSData *);
 
 - (void)getHotTags;
 - (void)photosSearchOnTag:(NSString *)tag;

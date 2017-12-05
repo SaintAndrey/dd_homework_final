@@ -9,19 +9,30 @@
 #import "RequestFlickr.h"
 #import "JSONParser.h"
 
+@interface RequestFlickr()
+
+@property NSURLSession *session;
+
+@end
+
 @implementation RequestFlickr
+
+-(instancetype)init {
+    NSURLSessionConfiguration *configuration =
+    [NSURLSessionConfiguration defaultSessionConfiguration];
+    _session = [NSURLSession sessionWithConfiguration:configuration
+                                                          delegate:nil
+                                                     delegateQueue:nil];
+    return self;
+}
 
 - (void)getHotTags {
     NSString *requestGetHotTags = @"https://api.flickr.com/services/rest/?method=flickr.tags.getHotList&api_key=8600137d80a1058ebefd7d2a06d77f4e&count=12&format=json&nojsoncallback=1";
     
     NSURL *urlGetHotTags = [NSURL URLWithString:requestGetHotTags];
     
-    NSURLSessionConfiguration *configuration =
-    [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration
-                                                          delegate:self
-                                                     delegateQueue:nil];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:urlGetHotTags completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+
+    NSURLSessionDataTask *task = [_session dataTaskWithURL:urlGetHotTags completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         JSONParser *jp = [[JSONParser alloc] init];
         NSArray *hotTags = [jp parseTagsFromTagsGetHotList:data];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -40,12 +51,12 @@
     
     NSURL *urlPhotoSearchOnTag = [NSURL URLWithString:requestPhotoSearchOnTag];
     
-    NSURLSessionConfiguration *configuration =
-    [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration
-                                                          delegate:self
-                                                     delegateQueue:nil];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:urlPhotoSearchOnTag completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//    NSURLSessionConfiguration *configuration =
+//    [NSURLSessionConfiguration defaultSessionConfiguration];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration
+//                                                          delegate:self
+//                                                     delegateQueue:nil];
+    NSURLSessionDataTask *task = [_session dataTaskWithURL:urlPhotoSearchOnTag completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         JSONParser *jp = [[JSONParser alloc] init];
         NSArray *photoId = [jp parseIdFromPhotosSearch:data];
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -59,12 +70,12 @@
 - (void)getPhoto:(NSString *)https {
     NSURL *url = [NSURL URLWithString:https];
     
-    NSURLSessionConfiguration *configuration =
-    [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration
-                                                          delegate:self
-                                                     delegateQueue:nil];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//    NSURLSessionConfiguration *configuration =
+//    [NSURLSessionConfiguration defaultSessionConfiguration];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration
+//                                                          delegate:self
+//                                                     delegateQueue:nil];
+    NSURLSessionDataTask *task = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         [self.delegate recivePhotoData:data];
 //        NSLog(@"%@", https);
     }];
@@ -79,12 +90,12 @@
                                    @"&format=json&nojsoncallback=1"];
     NSURL *urlHttpsPhoto = [NSURL URLWithString:requestHttpsPhoto];
     
-    NSURLSessionConfiguration *configuration =
-    [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration
-                                                          delegate:self
-                                                     delegateQueue:nil];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:urlHttpsPhoto completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+//    NSURLSessionConfiguration *configuration =
+//    [NSURLSessionConfiguration defaultSessionConfiguration];
+//    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration
+//                                                          delegate:self
+//                                                     delegateQueue:nil];
+    NSURLSessionDataTask *task = [_session dataTaskWithURL:urlHttpsPhoto completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         JSONParser *jp = [[JSONParser alloc] init];
         NSArray *httpsPhotoAndSize = [jp parseHttpsFromPhotos:data];
         
